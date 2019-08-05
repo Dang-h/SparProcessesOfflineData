@@ -75,9 +75,7 @@ object Req3PageFlowApplication {
 				//TODO 2.3、将集合中的pageId形成拉链效果(1-2, 1)、(2-3,1)
 				val zipList: List[(Long, Long)] = ids.zip(ids.tail)
 				zipList.map {
-					case (pageId1, pageId2) => {
-						(pageId1 + "-" + pageId2, 1L)
-					}
+					case (pageId1, pageId2) => (pageId1 + "-" + pageId2, 1L)
 				}
 			}
 		}

@@ -39,3 +39,12 @@
 	2.4、过滤无效数据，如：1-9(超出统计范围)
 	2.5、将拉链后的数据统计分析(pageid1-pageid2, sum)
 	3、计算单跳转换率
+
+4、统计每个页面用户的平均停留时间
+	1、 将原始数据进行结构变换：(session, (page_id, action_time))
+	2、 将转换结构后的数据根据session进行分组，(session, Iterator[(page_id, actiong_time)])
+	3、 对分组后的数据进行升序排列
+	4、 排序候得数据进行拉链处理:((page_id1, action_time1),(page_id2, action_time2)....)
+	5、 将数据转换为指定结构:(page_id1, (action_time2 - action_time1))
+	6、 转换后的数据根据page_id进行分组:(page_is, Iterator[action_time...])
+	7、 计算每个页面平均停留时间：timeList.sum / timeList.size

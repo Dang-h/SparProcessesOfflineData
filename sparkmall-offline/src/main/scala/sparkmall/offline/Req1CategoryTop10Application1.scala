@@ -12,10 +12,13 @@ import org.apache.spark.{SparkConf, SparkContext}
 import scala.collection.{immutable, mutable}
 
 object Req1CategoryTop10Application1 {
+
 	def main(args: Array[String]): Unit = {
 
 		val conf: SparkConf = new SparkConf().setAppName("CategoryTop10Application").setMaster("local[*]")
 		val sc = new SparkContext(conf)
+
+		//1、获取点击、下单和支付数量排名前 10 的品类
 
 		//TODO 1 获取原始数据
 		val lineDataRDD: RDD[String] = sc.textFile("input/user_visit_action.csv")
